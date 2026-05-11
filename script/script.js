@@ -30,7 +30,7 @@ const users = [
     bio: "a little mystery, a little madness 🖤 | stay rare",
   },
   {
-    name: "hamza sheikh",
+    name: "younus sheikh",
     pic: "https://randomuser.me/api/portraits/men/18.jpg",
     bio: "peace over attention 🌊 | private but present",
   },
@@ -82,7 +82,7 @@ function showUsers(arr){
         content.appendChild(heading);
         content.appendChild(paragraph);
 
-        // Appent all to card
+        // Append all to card
         card.appendChild(img);
         card.appendChild(blurredLayer);
         card.appendChild(content);
@@ -94,3 +94,13 @@ function showUsers(arr){
 };
 
 showUsers(users);
+
+let inp = document.querySelector(".inp");
+inp.addEventListener("input", function(){
+    let newUsers = users.filter((user => {
+        return user.name.startsWith(inp.value);
+    }));
+
+     document.querySelector(".cards").innerHTML = "";
+    showUsers(newUsers);
+});
