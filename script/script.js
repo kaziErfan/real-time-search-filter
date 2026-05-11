@@ -59,10 +59,12 @@ function showUsers(arr){
 
         // Create Image
         const img = document.createElement("img");
+        img.src = user.pic;
         img.classList.add("bg-img");
 
         // Create blurred layer div
         const blurredLayer = document.createElement("div");
+        blurredLayer.style.backgroundImage = `url(${user.pic})`;
         blurredLayer.classList.add("blurred-layer");
 
         // Create content div
@@ -71,10 +73,23 @@ function showUsers(arr){
 
         // Create h3 & paragraph
         const heading = document.createElement("h3");
-        heading.textContent = "User123";
+        heading.textContent = user.name;
 
         const paragraph = document.createElement("p");
-        paragraph.textContent = "lorem"
+        paragraph.textContent = user.bio;
+
+        // Append heading and paragraph to content
+        content.appendChild(heading);
+        content.appendChild(paragraph);
+
+        // Appent all to card
+        card.appendChild(img);
+        card.appendChild(blurredLayer);
+        card.appendChild(content);
+
+        // Append the card to div
+        
+        document.querySelector(".cards").appendChild(card);
     });
 };
 
