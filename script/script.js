@@ -98,7 +98,7 @@ showUsers(users);
 let inp = document.querySelector(".inp");
 inp.addEventListener("input", function(){
     let newUsers = users.filter((user => {
-        return user.name.startsWith(inp.value);
+        return user.name.match(inp.value);
     }));
 
      document.querySelector(".cards").innerHTML = "";
