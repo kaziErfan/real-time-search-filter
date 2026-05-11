@@ -50,3 +50,32 @@ const users = [
     bio: "sunshine mixed with midnight ☀️🌙 | beautifully different",
   },
 ];
+
+function showUsers(arr){
+    arr.forEach(function(user){
+        // Create outer card div
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // Create Image
+        const img = document.createElement("img");
+        img.classList.add("bg-img");
+
+        // Create blurred layer div
+        const blurredLayer = document.createElement("div");
+        blurredLayer.classList.add("blurred-layer");
+
+        // Create content div
+        const content = document.createElement("div");
+        content.classList.add("content");
+
+        // Create h3 & paragraph
+        const heading = document.createElement("h3");
+        heading.textContent = "User123";
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "lorem"
+    });
+};
+
+showUsers(users);
