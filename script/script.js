@@ -98,9 +98,7 @@ showUsers(users);
 let inp = document.querySelector(".inp");
 inp.addEventListener("input", function(){
     let newUsers = users.filter((user => {
-    let username = user.name.toLowerCase();
-    let inputValue = inp.value.toLowerCase();
-    return username.includes(inputValue);
+    return user.name.toLowerCase().includes(inp.value.trim().toLowerCase());
     }));
 
      document.querySelector(".cards").innerHTML = "";
