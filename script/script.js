@@ -88,19 +88,30 @@ function showUsers(arr){
         card.appendChild(content);
 
         // Append the card to div
-        
         document.querySelector(".cards").appendChild(card);
     });
 };
 
+function debounce(fnc, delay){
+    let timer;
+
+    return function(){
+        clearTimeout(timer);
+
+        timer = setTimeout(function(){
+            fnc();
+        }, delay);
+    }
+}
+
 showUsers(users);
 
 let inp = document.querySelector(".inp");
-inp.addEventListener("input", function(){
+
+inp.addEventListener("input", debounce(function(){
     let newUsers = users.filter((user => {
     return user.name.toLowerCase().includes(inp.value.trim().toLowerCase());
     }));
-
-     document.querySelector(".cards").innerHTML = "";
+    document.querySelector(".cards").innerHTML = "";
     showUsers(newUsers);
-});
+}, 300));
