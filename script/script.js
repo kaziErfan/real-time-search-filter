@@ -20,7 +20,7 @@ const users = [
     bio: "dreaming louder than I speak ☁️ | calm but not simple",
   },
   {
-    name: "yusuf ahmed",
+    name: "Yusuf Ahmed",
     pic: "https://randomuser.me/api/portraits/men/75.jpg",
     bio: "building myself quietly ⚡ | no noise, just growth",
   },
@@ -98,7 +98,9 @@ showUsers(users);
 let inp = document.querySelector(".inp");
 inp.addEventListener("input", function(){
     let newUsers = users.filter((user => {
-        return user.name.match(inp.value);
+    let username = user.name.toLowerCase();
+    let inputValue = inp.value.toLowerCase();
+    return username.includes(inputValue);
     }));
 
      document.querySelector(".cards").innerHTML = "";
